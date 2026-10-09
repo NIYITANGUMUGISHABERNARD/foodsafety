@@ -25,8 +25,8 @@ npm run dev
 curl -X POST http://localhost:5000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "admin@example.com",
-    "password": "admin123"
+    "email": "YOUR_ADMIN_EMAIL",
+    "password": "YOUR_ADMIN_PASSWORD"
   }'
 ```
 
@@ -44,8 +44,8 @@ POST /api/auth/login
 Content-Type: application/json
 
 {
-  "email": "user@example.com",
-  "password": "password123"
+  "email": "YOUR_REGISTERED_EMAIL",
+  "password": "YOUR_PASSWORD"
 }
 ```
 
@@ -58,7 +58,7 @@ Content-Type: application/json
 {
   "full_name": "John Doe",
   "email": "john@example.com",
-  "password": "password123",
+  "password": "YOUR_PASSWORD",
   "role": "Quality Control Officer"
 }
 ```
