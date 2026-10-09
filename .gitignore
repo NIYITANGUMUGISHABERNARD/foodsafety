@@ -1,0 +1,40 @@
+﻿# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node.js dependencies and build output
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Python generated files and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local database dump - review before sharing
+/food_safety.sql
+
+# Local database files - do not upload
+backend/db/database.db
+*.db
+*.sqlite
+*.sqlite3
