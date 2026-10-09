@@ -48,7 +48,7 @@ foodsafety/
 │   └── package.json
 ├── API_TESTING_GUIDE.md
 ├── Food Safety Management System.pdf
-├── food_safety.sql
+├── food_safety_public.sql
 ├── .gitignore
 └── README.md
 Prerequisites
@@ -66,7 +66,7 @@ cd foodsafety
 2. Configure the Database
 Start MySQL or MariaDB.
 Create a database named food_safety.
-Import the food_safety.sql file.
+Import the food_safety_public.sql file.
 Configure a database user with appropriate permissions.
 
 Check the SQL file before importing it into a database containing important data.
