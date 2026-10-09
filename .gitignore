@@ -38,3 +38,8 @@ backend/db/database.db
 *.db
 *.sqlite
 *.sqlite3
+
+# Python temporary files and local backups
+__pycache__/
+*.py[cod]
+*.backup

@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import mysql.connector
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
@@ -9,12 +12,15 @@ from collections import defaultdict
 app = Flask(__name__)
 CORS(app)
 
-# Database configuration
+# Load shared database configuration from backend/.env
+ENV_FILE = Path(__file__).resolve().parent.parent / "backend" / ".env"
+load_dotenv(ENV_FILE)
+
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'database': 'food_safety'
+    'host': os.getenv('DB_HOST', 'localhost'),
+    'user': os.getenv('DB_USER', 'root'),
+    'password': os.getenv('DB_PASSWORD', ''),
+    'database': os.getenv('DB_NAME', 'food_safety')
 }
 
 def get_db_connection():
