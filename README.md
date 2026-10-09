@@ -4,10 +4,10 @@ A web-based application for managing and monitoring food safety activities, incl
 
 Overview
 
-The Food Safety Management System combines a React frontend, a Node.js and Express backend, a MySQL-compatible database, and a Python service. The project is organized into separate components to support development and maintenance.
+The Food Safety Management System combines a React frontend, a Node.js and Express backend, a MySQL-compatible database, and a Python service.
 
 Key Features
-Dashboard: Overview of food safety management activities.
+Dashboard: Overview of food safety activities.
 Product Management: Manage product information.
 Batch Management: Track product batches.
 Category Management: Organize products into categories.
@@ -16,7 +16,7 @@ Risk Management: Manage food safety risk information.
 Storage Management: Manage storage-related information.
 Alerts and Notifications: Support food safety alerts.
 User Management: Provide user administration.
-Chatbot: Connect to the configured Python service.
+Chatbot: Connect to the Python service.
 Technology Stack
 Component	Technology
 Frontend	React, JavaScript, Vite, CSS, Tailwind CSS
@@ -53,7 +53,7 @@ foodsafety/
 └── README.md
 Prerequisites
 
-Install the following tools:
+Install the following tools before starting:
 
 Node.js and npm
 Python and pip
@@ -66,20 +66,20 @@ cd foodsafety
 2. Configure the Database
 Start MySQL or MariaDB.
 Create a database named food_safety.
-Review food_safety_public.sql.
+Review food_safety_public.sql before importing it.
 Import the SQL file into your database.
 Configure a database user with the necessary permissions.
 
-Important: Back up important data and review the SQL file before importing it into an existing database.
+Important: Back up existing data before importing SQL into a database that contains important information.
 
 3. Set Up the Backend
 
-Open a terminal in the project directory:
+Open a terminal in the project root and run:
 
 cd backend
 npm install
 
-Create a local .env file inside the backend directory:
+Create a .env file inside the backend directory with your local database settings:
 
 DB_HOST=localhost
 DB_USER=your_database_user
@@ -87,30 +87,30 @@ DB_PASSWORD=your_database_password
 DB_NAME=food_safety
 PORT=5000
 
-Replace the example values with your own database credentials. Never publish real passwords or secrets on GitHub.
+Replace the example values with your actual local database credentials.
 
-Start the backend:
+Start the backend using the development script configured in backend/package.json. If available, run:
 
 npm run dev
 
-The documented default backend port is 5000. If the command is unavailable, check the scripts in backend/package.json.
+The documented default backend port is 5000.
 
 4. Set Up the Python Service
 
-Open another terminal from the project root:
+Open a separate terminal from the project root:
 
 cd python-service
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-Check app.py to confirm how the Python service reads its database configuration.
+The Python service reads its database settings from backend/.env. Configure that file before starting the service.
 
 Start the Python service:
 
 python app.py
 
-The current application uses port 5001 for the Python service.
+The configured Python service port is 5001.
 
 5. Set Up the Frontend
 
@@ -120,7 +120,7 @@ cd web-based
 npm install
 npm run dev
 
-Open the local URL displayed by Vite.
+Open the local URL displayed by Vite in your browser.
 
 To create a production build:
 
@@ -130,7 +130,7 @@ The build output is generated in web-based/dist/.
 
 API Testing
 
-See API_TESTING_GUIDE.md for API testing instructions.
+See API_TESTING_GUIDE.md for instructions on testing the API.
 
 Use valid credentials from your own configured application when testing authentication.
 
@@ -153,8 +153,8 @@ Author
 
 Bernard Niyitangumugisha
 
-GitHub: @NIYITANGUMISHABERNARD
+GitHub: @NIYITANGUMUGISHABERNARD
 
 Repository
 
-View Food Safety Management System on GitHub
+View the Food Safety Management System on GitHub
