@@ -4,6 +4,8 @@ A web-based application designed to support food safety management through produ
 ## Overview
 The Food Safety Management System combines a web-based frontend, a Node.js backend, and a Python service to support the management and monitoring of food safety information.
 
+The project is organized into separate components to support development, configuration, testing, and future improvements.
+
 ## Key Features
 Dashboard: Provides an overview of food safety management activities.
 Product Management: Organizes product information.
@@ -24,56 +26,60 @@ Additional Service	Python
 API Documentation	Markdown
 Version Control	Git and GitHub
 ## Project Structure
-foodsafety/
-â”œâ”€â”€ backend/
-â”‚   â”œâ”€â”€ config/
-â”‚   â”œâ”€â”€ controllers/
-â”‚   â”œâ”€â”€ middleware/
-â”‚   â”œâ”€â”€ models/
-â”‚   â”œâ”€â”€ routes/
-â”‚   â”œâ”€â”€ services/
-â”‚   â”œâ”€â”€ app.js
-â”‚   â”œâ”€â”€ seed.js
-â”‚   â””â”€â”€ server.js
-â”œâ”€â”€ python-service/
-â”‚   â”œâ”€â”€ app.py
-â”‚   â””â”€â”€ requirements.txt
-â”œâ”€â”€ web-based/
-â”‚   â”œâ”€â”€ public/
-â”‚   â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ index.html
-â”‚   â””â”€â”€ package.json
-â”œâ”€â”€ API_TESTING_GUIDE.md
-â”œâ”€â”€ Food Safety Management System.pdf
-â”œâ”€â”€ .gitignore
-â””â”€â”€ README.md
-## Getting Started
-Prerequisites
 
-Install the following tools:
+```text
+foodsafety/
+|-- backend/
+|   |-- config/
+|   |-- controllers/
+|   |-- middleware/
+|   |-- models/
+|   |-- routes/
+|   |-- services/
+|   |-- app.js
+|   |-- seed.js
+|   -- server.js
+|-- python-service/
+|   |-- app.py
+|   -- requirements.txt
+|-- web-based/
+|   |-- public/
+|   |-- src/
+|   |-- index.html
+|   -- package.json
+|-- API_TESTING_GUIDE.md
+|-- Food Safety Management System.pdf
+|-- .gitignore
+-- README.md
+```
+## Getting Started
+### Prerequisites
+Install the following tools before running the project:
 
 Node.js and npm
 Python and pip
 A compatible MySQL database server
 Git
-1. Clone the Repository
+### 1. Clone the Repository
 git clone https://github.com/NIYITANGUMUGISHABERNARD/foodsafety.git
 cd foodsafety
-2. Configure the Backend
-
-Navigate to the backend directory and install dependencies:
+### 2. Configure the Backend
+Navigate to the backend directory and install the dependencies:
 
 cd backend
 npm install
 
-Configure the required environment variables for the database and application credentials.
+Configure the required environment variables for the database connection and application credentials.
 
-Review config/db.js, seed.js, and package.json to identify the required settings and available scripts.
+Review the following files to understand the required configuration and available scripts:
 
-Start the backend using the appropriate script defined in package.json.
+config/db.js
+seed.js
+package.json
 
-3. Configure the Python Service
+Start the backend using the appropriate script defined in the backend's package.json.
 
+### 3. Configure the Python Service
 From the project root, navigate to the Python service:
 
 cd python-service
@@ -83,15 +89,14 @@ Activate the virtual environment on Windows PowerShell:
 
 .\.venv\Scripts\Activate.ps1
 
-Install the dependencies:
+Install the required Python dependencies:
 
 pip install -r requirements.txt
 
 Configure any required environment variables and start the service according to its application configuration.
 
-4. Configure the Frontend
-
-Open a separate terminal from the project root and run:
+### 4. Configure the Frontend
+Open a separate terminal and navigate to the frontend directory from the project root:
 
 cd web-based
 npm install
@@ -99,9 +104,12 @@ npm run dev
 
 Open the local URL displayed by Vite in your browser.
 
-Configuration Notes
+### Configuration Notes
+The frontend, backend, database, and Python service may require additional configuration before all features work correctly.
 
-The frontend, backend, database, and Python service may require additional configuration before all features work correctly. Review the configuration files and API testing guide for the required ports, environment variables, and service connections.
+Review the configuration files and API testing guide for information about required ports, environment variables, database settings, and service connections.
+
+The actual startup commands may vary depending on the scripts defined in the project's configuration files.
 
 ## API Testing
 The project includes an API testing guide:
@@ -118,8 +126,11 @@ Apply appropriate authentication and authorization controls.
 Validate and sanitize user input.
 Avoid publishing database exports containing private or sensitive information.
 Review files for exposed credentials before pushing changes to GitHub.
+Never publish real passwords, API keys, or database credentials in the repository.
 ## Future Improvements
-Automated testing and test coverage.
+Potential future improvements include:
+
+Automated testing and improved test coverage.
 Deployment and installation documentation.
 Continuous integration and continuous deployment (CI/CD).
 Improved application monitoring and logging.
@@ -132,3 +143,4 @@ GitHub: @NIYITANGUMUGISHABERNARD
 
 ## Repository
 View the Food Safety Management System on GitHub
+
