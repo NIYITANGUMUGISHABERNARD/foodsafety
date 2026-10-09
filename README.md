@@ -16,7 +16,7 @@ Risk Management: Manage food safety risk information.
 Storage Management: Manage storage-related information.
 Alerts and Notifications: Support food safety alerts.
 User Management: Provide user administration.
-Chatbot: Provide a chatbot interface connected to the configured Python service.
+Chatbot: Connect to the configured Python service.
 Technology Stack
 Component	Technology
 Frontend	React, JavaScript, Vite, CSS, Tailwind CSS
@@ -66,16 +66,20 @@ cd foodsafety
 2. Configure the Database
 Start MySQL or MariaDB.
 Create a database named food_safety.
-Import the food_safety_public.sql file.
-Configure a database user with appropriate permissions.
+Review food_safety_public.sql.
+Import the SQL file into your database.
+Configure a database user with the necessary permissions.
 
-Check the SQL file before importing it into a database containing important data.
+Important: Back up important data and review the SQL file before importing it into an existing database.
 
 3. Set Up the Backend
+
+Open a terminal in the project directory:
+
 cd backend
 npm install
 
-Create a local backend/.env file with your database configuration:
+Create a local .env file inside the backend directory:
 
 DB_HOST=localhost
 DB_USER=your_database_user
@@ -83,13 +87,13 @@ DB_PASSWORD=your_database_password
 DB_NAME=food_safety
 PORT=5000
 
-Replace the example values with your own database credentials. Never commit real passwords or secrets to GitHub.
+Replace the example values with your own database credentials. Never publish real passwords or secrets on GitHub.
 
 Start the backend:
 
 npm run dev
 
-The backend uses port 5000 by default.
+The documented default backend port is 5000. If the command is unavailable, check the scripts in backend/package.json.
 
 4. Set Up the Python Service
 
@@ -100,15 +104,13 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-Check the database settings in app.py and make sure they match your local database configuration.
+Check app.py to confirm how the Python service reads its database configuration.
 
 Start the Python service:
 
 python app.py
 
-The Python service uses port 5001 in the current application code.
-
-Security: Before deployment, move database credentials into environment variables and use production-safe settings.
+The current application uses port 5001 for the Python service.
 
 5. Set Up the Frontend
 
@@ -130,26 +132,28 @@ API Testing
 
 See API_TESTING_GUIDE.md for API testing instructions.
 
+Use valid credentials from your own configured application when testing authentication.
+
 Security Practices
 Keep .env files and credentials out of version control.
 Use strong passwords and securely hash user passwords.
 Validate user input on the server.
 Apply appropriate authentication and authorization controls.
 Avoid publishing database exports containing private information.
-Review files for exposed credentials before pushing to GitHub.
+Review files for exposed secrets before pushing changes to GitHub.
+Apply production-safe settings before deployment.
 Future Improvements
 Automated testing and expanded test coverage.
-Database setup and recovery documentation.
 Improved error handling and logging.
-Continuous integration and deployment (CI/CD).
+Continuous integration and continuous deployment (CI/CD).
 Production deployment documentation.
-Additional API documentation and integration tests.
-Environment-based configuration for all services.
+Expanded API documentation and integration tests.
+Database setup and recovery documentation.
 Author
 
 Bernard Niyitangumugisha
 
-GitHub: @NIYITANGUMUGISHABERNARD
+GitHub: @NIYITANGUMISHABERNARD
 
 Repository
 
