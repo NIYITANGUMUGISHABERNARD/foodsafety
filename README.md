@@ -1,145 +1,156 @@
-﻿# Food Safety Management System
+﻿Food Safety Management System
 
-A web-based application designed to support food safety management through product and batch tracking, inspections, risk monitoring, storage management, alerts, and user administration.
+A web-based application for managing and monitoring food safety activities, including products, batches, inspections, risks, storage conditions, alerts, and users.
 
 Overview
 
-The Food Safety Management System combines a web-based frontend, a Node.js backend, and a Python service to support the management and monitoring of food safety information.
-
-The project is organized into separate components to support development, configuration, testing, and future improvements.
+The Food Safety Management System combines a React frontend, a Node.js and Express backend, a MySQL-compatible database, and a Python service. The project is organized into separate components to support development and maintenance.
 
 Key Features
-Dashboard: Provides an overview of food safety management activities.
-Product Management: Organizes product information.
-Batch Management: Supports product batch tracking.
-Category Management: Organizes products into categories.
-Inspection Management: Supports food safety inspection workflows.
-Risk Management: Provides functionality for managing food safety risks.
-Storage Management: Organizes storage-related information.
-Alerts and Notifications: Supports food safety alerts and notifications.
-User Management: Provides user administration functionality.
-Chatbot: Includes a chatbot interface for the configured service.
+Dashboard: Overview of food safety management activities.
+Product Management: Manage product information.
+Batch Management: Track product batches.
+Category Management: Organize products into categories.
+Inspection Management: Support food safety inspections.
+Risk Management: Manage food safety risk information.
+Storage Management: Manage storage-related information.
+Alerts and Notifications: Support food safety alerts.
+User Management: Provide user administration.
+Chatbot: Provide a chatbot interface connected to the configured Python service.
 Technology Stack
 Component	Technology
-Frontend	React, Vite, JavaScript, CSS
+Frontend	React, JavaScript, Vite, CSS, Tailwind CSS
 Backend	Node.js, Express.js
-Database	MySQL-compatible database configuration
-Additional Service	Python
-API Documentation	Markdown
+Database	MySQL / MariaDB
+Python Service	Python, Flask
+HTTP Client	Axios
 Version Control	Git and GitHub
 Project Structure
 foodsafety/
-|-- backend/
-|   |-- config/
-|   |-- controllers/
-|   |-- middleware/
-|   |-- models/
-|   |-- routes/
-|   |-- services/
-|   |-- app.js
-|   |-- seed.js
-|   `-- server.js
-|-- python-service/
-|   |-- app.py
-|   `-- requirements.txt
-|-- web-based/
-|   |-- public/
-|   |-- src/
-|   |-- index.html
-|   `-- package.json
-|-- API_TESTING_GUIDE.md
-|-- Food Safety Management System.pdf
-|-- .gitignore
-`-- README.md
-Getting Started
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── app.js
+│   ├── seed.js
+│   ├── server.js
+│   └── package.json
+├── python-service/
+│   ├── app.py
+│   └── requirements.txt
+├── web-based/
+│   ├── public/
+│   ├── src/
+│   ├── index.html
+│   └── package.json
+├── API_TESTING_GUIDE.md
+├── Food Safety Management System.pdf
+├── food_safety.sql
+├── .gitignore
+└── README.md
 Prerequisites
 
-Install the following tools before running the project:
+Install the following tools:
 
 Node.js and npm
 Python and pip
-A compatible MySQL database server
+MySQL or MariaDB
 Git
+Installation and Setup
 1. Clone the Repository
 git clone https://github.com/NIYITANGUMUGISHABERNARD/foodsafety.git
 cd foodsafety
-2. Configure the Backend
+2. Configure the Database
+Start MySQL or MariaDB.
+Create a database named food_safety.
+Import the food_safety.sql file.
+Configure a database user with appropriate permissions.
 
-Navigate to the backend directory and install the dependencies:
+Check the SQL file before importing it into a database containing important data.
 
+3. Set Up the Backend
 cd backend
 npm install
 
-Configure the required environment variables for the database connection and application credentials. Do not commit real passwords or secrets to GitHub.
+Create a local backend/.env file with your database configuration:
 
-Review these files to understand the configuration and available scripts:
+DB_HOST=localhost
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_NAME=food_safety
+PORT=5000
 
-config/db.js
-seed.js
-package.json
+Replace the example values with your own database credentials. Never commit real passwords or secrets to GitHub.
 
-Start the backend using the appropriate script defined in the backend's package.json.
+Start the backend:
 
-3. Configure the Python Service
+npm run dev
 
-From the project root, navigate to the Python service:
+The backend uses port 5000 by default.
+
+4. Set Up the Python Service
+
+Open another terminal from the project root:
 
 cd python-service
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-Configure any required environment variables and start the service according to its application configuration.
+Check the database settings in app.py and make sure they match your local database configuration.
 
-4. Configure the Frontend
+Start the Python service:
 
-Open a separate terminal and navigate to the frontend directory from the project root:
+python app.py
+
+The Python service uses port 5001 in the current application code.
+
+Security: Before deployment, move database credentials into environment variables and use production-safe settings.
+
+5. Set Up the Frontend
+
+Open another terminal from the project root:
 
 cd web-based
 npm install
 npm run dev
 
-Open the local URL displayed by Vite in your browser.
+Open the local URL displayed by Vite.
 
-Configuration Notes
+To create a production build:
 
-The frontend, backend, database, and Python service may require additional configuration before all features work correctly.
+npm run build
 
-Review the configuration files and API testing guide for information about required ports, environment variables, database settings, and service connections.
-
-The actual startup commands may vary depending on the scripts defined in the project's configuration files.
+The build output is generated in web-based/dist/.
 
 API Testing
 
-The project includes an API testing guide: API_TESTING_GUIDE.md.
-
-Use this guide to review the available API testing procedures and verify backend endpoints.
+See API_TESTING_GUIDE.md for API testing instructions.
 
 Security Practices
 Keep .env files and credentials out of version control.
-Use strong passwords and store password hashes securely.
-Use environment variables for sensitive configuration.
+Use strong passwords and securely hash user passwords.
+Validate user input on the server.
 Apply appropriate authentication and authorization controls.
-Validate and sanitize user input.
-Avoid publishing database exports containing private or sensitive information.
-Review files for exposed credentials before pushing changes to GitHub.
-Never publish real passwords, API keys, or database credentials in the repository.
+Avoid publishing database exports containing private information.
+Review files for exposed credentials before pushing to GitHub.
 Future Improvements
-
-Potential future improvements include:
-
-Automated testing and improved test coverage.
-Deployment and installation documentation.
-Continuous integration and continuous deployment (CI/CD).
-Improved application monitoring and logging.
-More detailed database setup documentation.
-Additional API integration documentation.
+Automated testing and expanded test coverage.
+Database setup and recovery documentation.
+Improved error handling and logging.
+Continuous integration and deployment (CI/CD).
+Production deployment documentation.
+Additional API documentation and integration tests.
+Environment-based configuration for all services.
 Author
 
 Bernard Niyitangumugisha
 
-GitHub: @NIYITANGUMISHABERNARD
+GitHub: @NIYITANGUMUGISHABERNARD
 
 Repository
 
-View the Food Safety Management System on GitHub.
+View Food Safety Management System on GitHub
